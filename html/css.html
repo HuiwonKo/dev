@@ -1,0 +1,248 @@
+<!--
+inline 방식 : element에 스타일을 직접 기술하는 방식
+style tag 방식 : style tag 에 기술하는 방식
+외부 파일 방식 : CSS를 별도의 파일로 분리해서 링크하는 방식
+-->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        h1{ /*selector-어떤 태그에 적용시킬 것인지*/
+            color: blue;
+            font-size: 20px;
+        }
+        #memo{
+            color: red;
+        }
+        .red{
+            color: red;
+        }
+    </style><!-- head tag 에 들어감 -->
+</head>
+<body>
+    <h1>생활코딩이란</h1>
+    <p>일반인을 위한 프로그래밍 커리큘럼입니다.</p>
+    <p>누구나 프로그래밍을 할 수 있습니다.</p>
+    <div id="memo">red</div>
+    <div class="red">red</div>
+    <p class="red">class selector는 여러 번 사용 가능</p>
+할지라도 그들의 관현악이며, 사는가 있음으로써 <span style="color:red">생명</span>을 힘있다.
+
+
+</body>
+</html>
+
+<!--
+selector : 선택자 (CSS 가 적용될 태그를 지정)
+
+id 선택자 : 웹 페이지 내에서 한번만 사용 (전체 문서에서 유일하게 하나의 태그를 식별하기 위해 ) - #
+class 선택자 : 웹 페이지 내에서 여러 번 사용 ( 태그를 그룹핑해서 하나로 제어하기 위해 ) - .
+type 선택자 : 특정 태그를 가진 element 전체를 제어하기 위해 사용
+- 태그명
+-->
+
+
+<!--
+selector의 조합
+
+하위 선택자 : 특정 엘리먼트 하위에 나오는 엘리먼트 선택
+
+하나의 CSS 선언을 여러 개의 선택자에 적용 : 여러 element의 selector 에 적용
+
+자식 선택자 : 특정 엘리면트의 직접적인 하위 element에 대해서만 선택할 때 사용(하위 선택자와 다름) - 딱 직접적인 자식 element 만!
+
+-->
+<style type="text/css">
+    #navigation li{
+        color: blue;
+    }
+</style>
+<div id="navigation">
+    <ul>
+    <li>홈</li>
+    <li>제품소개</li>
+    <li>고객센터</li>
+    </ul>
+</div>
+<ul>
+    <li>홈</li>
+    <li>제품소개</li>
+    <li>고객센터</li>
+</ul>
+
+
+<style type="text/css">
+    h1, #link{
+        color: red;
+    }
+</style>
+<h1>생활코딩에 오신 것을 환영합니다</h1>
+<a id="link" href="http://opentutorials.org">생활코딩</a>
+
+<style type="text/css">
+    #navigation > li{
+        border: 1px solid red;
+    }
+</style>
+    <ul id="navigation">
+    <li>홈</li>
+    <li>사이트
+        <ul>
+        <li>생활코딩</li>
+        <li>코딩생활</li>
+        </ul>
+    </ul>
+
+<!-- 텍스트 꾸미기 -->
+
+<!-- color -->
+<style>
+    #hex{
+        color: #FF0000; /* hex 방식 */
+    }
+    #rgb{
+        color: rgb(255,0,0); /* rgb 방식 */
+    }
+    #name{
+        color: red; /* name 방식 */
+    }
+</style>
+<body>
+    <div id="hex">hex(color:#ff0000)</div>
+    <div id="rgb">(color:RGB(255,0,0))</div>
+    <div id="name">Color Name(color:red)</div>
+</body>
+
+<!-- 정렬 -->
+<style type="text/css">
+    div {
+        margin: 30px;
+        width: 500px;
+    }
+    #left{
+        text-align: left; /* right,center,justify */
+    }
+</style>
+<body>
+    <div id="left">
+    할지라도 그들의 관현악이며, 사는가 있음으로써 생명을<br/>
+    공자는 옷을 놀이 보이는 그림자는 평화스러운 열매를 품으며<br/>
+    용감하고 만물은 그들의 이것이다.<br/>
+    </div>
+</body>
+
+<!-- font -->
+<style type="text/css">
+            a {
+                font-family:'돋움',Dotum,AppleGothic,Arial,sans-serif
+            } /*sans-serif: 장식 없음, serif: 장식 있음 */
+             #base{
+                font-size:50px; /* font 크기 - px, em(부모의 px에 대한 상대적 크기) */
+                font-weight: normal; /* font 두께 - bold, bolder,lighter */
+            }
+            .em05{
+                font-size:0.5em;
+            }
+            .em2{
+                font-size:2em;
+            }
+            div{
+                border:1px solid black;
+                padding:10px;
+            }
+</style>
+    <body>
+        <a href="http://opentutorials.org">오픈튜토리얼스</a>
+         <div id="base">
+            50px
+            <div class="em05">
+                0.5em = 25px;
+            </div>
+            <div class="em2">
+                2em = 100px
+                <div class="em05">
+                    0.5em = 50px
+                </div>
+            </div>
+        </div>
+    </body>
+
+<!-- 링크 꾸미기 -->
+ <style>
+            a:link {
+                color: red;
+                text-decoration: none;
+            }/* unvisited link */
+            a:visited {
+                color: blue;
+            }/* visited link */
+            a:hover {
+                color: green;
+                text-decoration: underline;
+            }/* mouse over link */
+            a:active {
+                color: orange;
+            } /* selected link */
+        </style>
+    </head>
+    <body>
+        <a href="http://opentutorials.org">오픈튜토리얼스</a>
+    </body>
+
+<!-- 표 꾸미기 -->
+ <style>
+            table{ /* 바깥쪽 */
+                border:1px solid gray;
+                border-collapse: collapse; /* border 합치기 */
+            }
+            /* 안쪽 */
+            th{
+                background-color: #d0d0d0;
+                font-weight:bold;
+            }
+            th,td{
+                border:1px solid gray;
+                padding:5px; /* 여백 지정 */
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>순서</th>
+                <th>과목명</th>
+                <th>토픽수</th> <!-- 제목 -->
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>웹서비스 만들기</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>HTML 수업</td>
+                <td>13</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>HTML 수업</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>CSS 수업</td>
+                <td>15</td>
+            </tr>
+        </table>
+    </body>
+
+<!-- background 꾸미기 -->
+
+
+

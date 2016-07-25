@@ -1,0 +1,158 @@
+<!--
+HTML은 태그 / 속성 으로 구성됨
+-->
+<!--
+정보로서의 HTML
+: 정보를 표현 - HTML
+글자를 꾸미는 것 - CSS
+-->
+
+
+
+
+
+<!DOCTYPE html> <!-- 어떠한 표준에 따르고 있는 HTML의 태그인지 알려줌 : HTML 5 기준 -->
+<html>
+<head> <!-- head 태그 : 문서를 설명해주는 정보를 담고 있음 -->
+<title> HTML - 수업 </title> <!-- 제목 -->
+<meta charset = "utf-8"> <!-- 한글 깨짐 방지 -->
+<meta name="description" content="생활코딩의 소개자료">
+<meta name="keywords" content="코딩,coding,생활코딩,프로그래밍,html,css,javascript">
+<meta name="author" content="egoing">
+<meta http-equiv="refresh" content="30"> <!-- 30초 간격으로 refresh -->
+<!--
+웹페이지 자체의 정보에 대한 것 : meta
+-->
+</head>
+
+<body> <!-- 본문 -->
+
+<header> <!-- semantic 태그 -->
+    <h1><a href="index.html">HTML</a></h1>
+</header>
+
+<h1> HyperText Markup Language </h1> <!-- 제목 -->
+<h2> HTML </h2> <!-- 소제목 -->
+<strong> strong => 진하게 표시 </strong>
+
+<a href=" " target="_blank" title="링크를 열자">링크</a> <!-- 링크 달기, 새로운 브라우저에서 열기-->
+
+
+<nav>
+<ol> <!-- ordered list -->
+  <li>기술소개</li> <!-- 중첩 태그 -->
+  <li>기본문법</li>
+  <li>하이퍼 텍스트와 속성</li> <!-- list 태그 -->
+</ol>
+</nav>
+
+
+<ul> <!-- unordered list -->
+  <li>피로그래밍</li>
+  <li>레알</li>
+</ul>
+
+
+
+
+<p> <!-- 단락을 구분하는 태그 -->
+</p>
+
+<br> <!-- 줄바꿈 태그 -->
+
+<img src="img.jpg" width="100" height="100" alt="산 이미지" title="산 이미지"> <!-- 이미지 태그 -->
+<!-- https://pixabay.com 이미지 참고 사이트 -->
+<!-- alt : alternative text (이미지가 깨졌을 경우 대체 text) -->
+
+
+<table border="2"> <!-- 테이블 태그 -->
+<tr> <!-- 행 -->
+<td>이름</td>  <td>성별</td>    <td>주소</td> <!--열 -->
+</tr>
+</table>
+
+
+
+<!-- 사용자가 입력한 정보를 웹 브라우저 -> 웹 서버로 전송하는 것 -->
+<form action="http://localhost/login.php"> <!-- form 태그 -->
+<p>아이디: <input type="text" name="id" value="default value"></p>
+<p>비밀번호: <input type="password" name="pwd" value="default value"></p>
+<p>주소:<textarea cols="50" rows="2">default value</textarea>
+</p><input type="submit">
+
+<p>
+<h1>색상</h1>
+<select name="color">
+    <option value="red">붉은색</option>
+    <option value="black">검은색</option>
+    <option value="blue">파란색</option>
+</select>
+</p>
+
+<p>
+    <h1>색상(단일선택)</h1>
+    붉은색 : <input type="radio" name="color" value="red">
+    검은색 : <input type="radio" name="color" value="black">
+    파란색 : <input type="radio" name="color" value="blue">
+</p>
+
+<p>
+    <h1>사이즈(다중선택)</h1>
+    95 : <input type="checkbox" name="size" value="95">
+    100 : <input type="checkbox" name="size" value="100">
+    105 : <input type="checkbox" name="size" value="105">
+</p>
+
+<p>
+    <input type="text" name="id">
+    <input type="hidden" name="hide" value="egoing"> <!-- hidden field -->
+    <input type="submit" value="전송">
+    <input type="button" value="버튼">
+    <input type="reset">
+</p>
+    <input type="submit">
+
+<p> <!-- label 태그 -->
+    <label for="id_txt">text</label> : <input id="id_txt" type="text" name="id" value="default value">
+    <label for="id_pw">password</label> : <input id=type="text" name="pwd" value="default value">
+    <label> textarea : <textarea name="textarea" id="" cols="30" rows="10">default value</textarea>
+    </label> <!-- label 태그로 전체를 감싸주면 포함한 모든 글자, textarea들이 label로 처리됨 -->
+</p>
+
+</form>
+
+<form action="http:/localhost/method.php" method="post">
+<!-- 정보를 url을 통하지 않고 보내는 것 : method="post" -->
+    <input type="text" name="id">
+    <input type="submit">
+</form>
+
+
+<form action="http://localhost/upload.php" method="post" enctype="multipart/form-data"> <!-- 파일 전송 태그 -->
+    <input type="file" name="profile">
+    <input type="submit">
+</form>
+
+
+<iframe src="http://opentutorials.org" frameborder="0" sandbox></iframe> <!-- iframe 사용 시에는 sandbox 속성을 꼭 추가해주기 -->
+
+<video width="400" controls autoplay> <!-- 컨트롤 바 -->
+    <source src="videos/small.mp4"> <!-- (브라우저마다 동영상 저장 방법이 다르기 때문에 많은 코덱 첨부하는 게 좋음)  -->
+    <source src="videos/small.ogv">
+</video>
+
+
+<footer>
+    <ul>
+    <li><a href="private.html">개인정보정책</a></li>
+    <li><a href="about.html">회사소개</a></li>
+    </ul>
+</footer>
+
+</body>
+</html>
+
+
+<!-- html은 계속해서 변하고 있고 새롭게 도입된 기술은 오래된 웹브라우저에서 동작하지 x. 얼마나 많은 웹브라우저를 사용할 수 있는가에 따라서 신기술의 도입 여부를 결정해야 한다.
+caniuse.com 참고하자. -->
+

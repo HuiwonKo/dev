@@ -1,0 +1,14 @@
+def myfn2(base):
+    def wrap(x,y):
+        return base+x+y
+    return wrap
+
+
+fn2=myfn2(10)
+fn3=myfn2(20)
+
+fn2(1,2)
+fn3(1,2)
+
+# fn2 의 wrap 과 fn3 의 wrap은 다르다
+# myfn2 의 return 값이 wrap이기 때문에 fn2, fn3 은 wrap

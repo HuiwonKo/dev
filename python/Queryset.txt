@@ -1,0 +1,60 @@
+Query set 이란?
+: DB에 어떤 데이터를 요청할 때 -> 어떤 (조건을 지정)=> 이 어떤을 가지고 있는 list 를 의미
+
+qs = Post.objects.all()
+qs = qs.filter(id__gt= 10)
+
+Queryset은 지연평가 된다 (Lazy 하게 동작한다.) => DB에 접근하지는 않고 조건을 만족시키는 data set(list)를 caching 해두었다가 정말 DB에 접근해야 하는 상황이 오면(요청이 들어올 경우) 그 때 비로소 접근하게 된다.
+
+
+for post in qs:
+    print(Post)
+
+Post.objects.all().filter(id__gt=10,id__lt = 1000) => 이 경우에는 DB에 접근하는 수밖에 없음
+(Caching 자체가 존재하지 않음)
+
+
+
+Related Name 이란?
+
+<< blog app >>
+
+<Model1>
+Post
+-title
+-content
+
+
+<Model2>
+Comment
+-post(Foreign key)
+-message
+-author
+
+
+Post : Comment 의 관계는 1:N 의 관계 (OneToManyField)
+
+
+1. Comment 측에서 Post에 접근할 때
+comment.post
+
+2. Post 측에서 Comment에 접근할 때
+post.comment_set.all()
+Comment.objects.filter(post=post)
+
+그런데 다른 app에서 동일한 명의 table(Class) 가 생성되었을 때 접근 시 겹치면?
+blog app의 Comment model 과 shop app의 Comment model .. 이름이 겹치네
+
+
+<< shop app >>
+
+<Model1>
+Comment
+-post(Foreign key)
+-message
+-author
+
+post = models.ForeignKey(Post, related_name="Comment_see","Shop_comment_set","+")
+
+
+
